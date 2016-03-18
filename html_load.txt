@@ -1,0 +1,161 @@
+
+    <div id="content_header">       
+        <h1 id="bannerTitle">feet first Footwear Inventory</h1>
+       <input type="button" value="LOGOUT" id="logout_button" name="Logout"  />
+       
+    </div>
+    <div id="tabs">
+        <div id="navigation">
+            <ul>
+               <li><a href="#tab-add">NEW RECORD</a></li>
+                <li class="tab-two"><a href="#tab-edit">EDIT RECORD</a></li>
+                <li class="tab-three"><a href="#tab-delete">DELETE RECORD</a></li>
+            </ul>
+        </div>
+        <div id="tab-add">
+
+        <form id="form_add" enctype="multipart/form-data">
+        <div name="add_response_msg" class="confirm_message"> </div>
+        <ul id = "ul">
+            <li>        
+                <label>SKU:</label><span>&#42;</span>
+                <input type="text" name="add_sku" size="7" maxlength="7"  />
+                <span id="err_a_sku" class="message"></span>                 
+            </li>
+          <li>  
+                <label>Category:</label><span>&#42;</span>
+                <select name="add_category" id="add_category" class="dropdown"></select>
+                <span id="err_a_category" class="message"></span> 
+            </li>
+            <li>  
+                <label>Vendor:</label><span>&#42;</span>
+                <select name="add_vendor" id="add_vendor" class="dropdown"></select>
+                <span id="err_a_vendor" class="message"></span> 
+            </li>
+           <li>  
+                <label>Manufacturer Identifier:</label><span>&#42;</span>
+                <input type="text" name="add_m_identifier" size="30"  />  
+                <span id="err_a_manu" class="message"></span>                 
+            </li>
+           <li>  
+                <label>Description:</label><span>&#42;</span>
+                <textarea name="add_desc" ></textarea>
+                <span id="err_a_desc" class="message"></span> 
+                </li>
+                <li>
+                <label>Features:</label><span>&#42;</span>
+                <textarea name="add_features"></textarea></td>
+                <span id="err_a_feat" class="message"></span> 
+           </li>
+           <li>         
+               <label>Cost:</label><span>&#42;</span>
+                <input type="text" name="add_cost" size="10"  />
+                <label>Retail:</label><span>&#42;</span>
+                <input type="text" name="add_retail" size="10"  />  
+                <span id="err_a_cost" class="message"></span> 
+                <span id="err_a_retail" class="message"></span>                
+            </li>
+            <li>                      
+                <label>Image:</label><span>&#42;</span>
+                <input type="file" name="add_image" id="add_image" />
+                <span id="err_a_image" class="message"></span> 
+            </li>
+            
+        </ul>
+        <h4><div id="message_line1" name="add_message"> </div>&nbsp;</h4>
+        <h2 id="button_line"><input type="RESET" value ="RESET"/>
+            <input type="button" value="ADD" name="add_submit"  /></h2>
+   
+        </form>
+        </div>
+          
+        <div id="tab-edit">
+        
+        <form id="form_edit" enctype="multipart/form-data">
+            
+           
+           <ul id = "ul">      
+                <li><label>SKU:</label><span>&#42;</span>
+                <input type="text" name="e_sku" id="e_sku" size="10" maxlength="7"  />
+                <input type="button" class="topbuttons" value="EDIT" name="e_edit"/>
+                <input type="button" class="topbuttons" value="CLEAR" name="e_clear"/>   
+                <span id="err_e_sku" class="message"></span>               
+            </li>
+            </ul>
+          
+            <h4><div id="message_line1" name="e_message1"> </div>&nbsp;</h4>
+            <div name="update_message_msg" class="confirm_message"> </div>
+            <div id="editForm">
+           <ul id = "ul">
+            <li>
+                <label>Category:</label><span>&#42;</span>
+                <select name="e_category" class="dropdown"></select>
+                <span id="err_e_category" class="message"></span> 
+            </li>
+            <li>
+                <label>Vendor:</label><span>&#42;</span>
+                <select name="e_vendor" class="dropdown"></select>
+                <span id="err_e_vendor" class="message"></span> 
+            </li>
+            <li>       
+                <label>Manufacturer Identifier:</label><span>&#42;</span>
+                <input type="text" name="e_m_identifier" size="30"  /> 
+                <span id="err_e_manu" class="message"></span>            
+           </li>
+            <li>
+                <label>Description:</label><span>&#42;</span>
+                <textarea name="e_desc" rows="2" cols="20"></textarea>
+                <span id="err_e_desc" class="message"></span> 
+                </li>
+                <li>
+                <label>Features:</label><span>&#42;</span>
+                <textarea name="e_features" rows="2" cols="20"></textarea>
+                <span id="err_e_feat" class="message"></span> 
+            </li>
+           <li>      
+                <label>Cost:</label><span>&#42;</span>
+                <input type="text" name="e_cost" size="10"  />
+                <label>Retail:</label><span>&#42;</span>
+                <input type="text" name="e_retail" size="10"  />  
+                <span id="err_e_cost" class="message"></span> 
+                <span id="err_e_retail" class="message"></span>               
+           </li>
+            <li>                    
+                <label>Image:</label><span>&#42;</span>
+                <div id="eImage"></div><h3><i>Upload image if you want to replace the above image</i></h3>
+                <input type="file" name="e_image" id="e_image"/>
+                <span id="err_e_image" class="message"></span> 
+           </li>
+        </ul>
+        <h4><div id="message_line1" name="e_message"> </div>&nbsp;</h4>
+        
+        <h2 id="button_line">
+        <input type="button" value="Cancel" name="e_cancel" />
+        <input type="submit" value="Confirm" name="e_submit" /></h2>
+        </div>
+            
+        </form>  
+        </div>
+      
+        <div id="tab-delete">
+        <form id="form_delete">
+            
+             <ul id = "ul">      
+                <li><label>SKU:</label><span>&#42;</span>
+                <input type="text" name="d_sku" id="d_sku" size="10" maxlength="7"  />
+                <input type="button" class="topbuttons" value="DELETE" name="d_delete"/>
+                <input type="button" class="topbuttons" value="CLEAR" name="d_clear"/>   
+                <span id="err_d_sku" class="message"></span>               
+            </li>
+            </ul>
+            
+            <h4><div id="message_line1" name="d_message"> </div>&nbsp;</h4>
+            <div name="delete_msg" class="confirm_message"> </div>
+            <div id="d_display"><div id="d_data"></div>
+            <h2 id="button_line">
+                <input type="button" value="Cancel" name="d_cancel" />
+                <input type="submit" value="Confirm" name="d_confirm" /></h2>
+            </div>
+        </form>
+        </div>  
+    </div>

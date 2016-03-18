@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!-- # Nadimpally,Teja Pruthvi Varma
+# jadrn037
+# CS0645, Spring 2016
+# Proj1
+-->
+
+<head>
+  <title>Footwear Inventory</title>
+  <meta http-equiv="content-type" 
+    content="text/html;charset=utf-8" />
+  <link rel="shortcut icon" href="http://jadran.sdsu.edu/~jadrn037/proj1/images/icon.png" />
+    <link rel="stylesheet" type="text/css" href="http://jadran.sdsu.edu/~jadrn037/proj1/proj1.css" />
+    <script type="text/javascript" src="http://jadran.sdsu.edu/jquery/jquery.js"></script>
+    <script src="http://jadran.sdsu.edu/jquery/jQueryUI.js"></script>
+    <script type="text/javascript" src="http://jadran.sdsu.edu/~jadrn037/proj1/js/ajax_get_lib.js"></script>
+    <script type="text/javascript" src="http://jadran.sdsu.edu/~jadrn037/proj1/js/proj1.js"></script>
+    <script type="text/javascript" src="http://jadran.sdsu.edu/~jadrn037/proj1/js/delete.js"></script>
+    <script type="text/javascript" src="http://jadran.sdsu.edu/~jadrn037/proj1/js/edit.js"></script>
+  <script type="text/javascript">
+    history.go(1)
+  </script>
+</head>
+
+<body>
+  
+<div id="wrapper1">
+  <div id="banner">   
+    <h1 id="bannerTitle">Footwear Inventory</h1>
+    <a id="logout" href="http://jadran.sdsu.edu/perl/jadrn037/proj1/logout.cgi">Log Out</a>
+  </div>
+    <div id="tabs">
+      <div id="navigation">
+          <ul>
+            <li><a href="#tab-add">New Record</a></li>
+            <li><a href="#tab-edit">Edit Record</a></li>
+            <li><a href="#tab-delete">Delete Record</a></li>
+            </ul>
+      </div>
+      <div id="tab-add">
+
+        <form id="form_add" enctype="multipart/form-data">
+        <div name="add_confirm" class="confirm_message"> </div>
+      <table class="form_table">
+      <tr>    
+                <td><label>SKU:</label></td>
+                <td><input type="text" name="a_sku" size="7" maxlength="7"  /></td>
+                <td colspan="2"><img name="busy_wait" src="http://jadran.sdsu.edu/~jadrn037/proj1/images/wait.gif" /></td>                   
+        </tr>
+      <tr>
+        <td><label>Category:</label></td>
+        <td colspan="2"><select name="a_category" id="a_category" class="dropdown"></select></td>
+      </tr>
+      <tr>
+        <td><label>Vendor:</label></td>
+        <td colspan="3"><select name="a_vendor" id="a_vendor" class="dropdown"></select></td>
+      </tr>
+      <tr>    
+                <td><label>Manufacturer Identifier:</label></td>
+                <td colspan="3"><input type="text" name="a_m_identifier" size="30"  /></td>                   
+        </tr>
+        <tr>
+              <td colspan="2"><label>Description:</label><br/>
+              <textarea name="a_desc" rows="5" cols="50"></textarea></td>
+              <td colspan="2"><label>Features:</label><br/>
+              <textarea name="a_features" rows="5" cols="50"></textarea></td>
+            </tr>
+      <tr>    
+                <td><label>Cost:</label></td>
+                <td><input type="text" name="a_cost" size="10"  /></td> 
+                <td colspan="2"><label>Retail:</label>
+                <input type="text" name="a_retail" size="10"  /></td>                   
+        </tr>
+        <tr>                  
+              <td><label>Image:</label></td>
+                <td colspan="3"><input type="file" name="a_image" id="a_image" /></td>
+            </tr>
+            
+    </table>
+      <h4><div id="message_line1" name="a_message"> </div>&nbsp;</h4>
+    <h2 id="button_line"><input type="reset" />
+          <input type="button" value="Add" name="a_submit"  /></h2>
+   
+    </form>
+        </div>
+          
+      <div id="tab-edit">
+        
+        <form id="form_edit" enctype="multipart/form-data">
+          
+        <table class="form_table">
+      <tr>    
+                <td><label>SKU:</label></td>
+                <td><input type="text" name="e_sku" id="e_sku" size="10" maxlength="7"  /></td>
+                <td><input type="button" class="topbuttons" value="Edit" name="e_edit"/></td>
+                <td><input type="button" class="topbuttons" value="Clear" name="e_clear"/></td>
+                <td><img name="e_busy_wait" src="http://jadran.sdsu.edu/~jadrn037/proj1/images/wait.gif" /></td>                   
+        </tr>
+        </table>
+        <h4><div id="message_line1" name="e_message1"> </div>&nbsp;</h4>
+        <div name="edit_confirm" class="confirm_message"> </div>
+        <div id="editForm"><table class="form_table">
+        <tr>
+        <td><label>Category:</label></td>
+        <td colspan="2"><select name="e_category" class="dropdown"></select></td>
+      </tr>
+      <tr>
+        <td><label>Vendor:</label></td>
+        <td colspan="3"><select name="e_vendor" class="dropdown"></select></td>
+      </tr>
+      <tr>    
+                <td><label>Manufacturer Identifier:</label></td>
+                <td colspan="3"><input type="text" name="e_m_identifier" size="30"  /></td>                   
+        </tr>
+        <tr>
+              <td colspan="2"><label>Description:</label><br/>
+              <textarea name="e_desc" rows="5" cols="50"></textarea></td>
+              <td colspan="2"><label>Features:</label><br/>
+              <textarea name="e_features" rows="5" cols="50"></textarea></td>
+            </tr>
+      <tr>    
+                <td><label>Cost:</label></td>
+                <td><input type="text" name="e_cost" size="10"  /></td> 
+                <td colspan="2"><label>Retail:</label>
+                <input type="text" name="e_retail" size="10"  /></td>                   
+        </tr>
+        <tr>                  
+              <td><label>Image:</label></td>
+                <td colspan="3"><div id="eImage"></div><h5><i>Upload a new file to change Existing Image</i></h5>
+                <input type="file" name="e_image" id="e_image"/></td>
+            </tr>
+        </table>
+        <h4><div id="message_line1" name="e_message"> </div>&nbsp;</h4>
+        <center><img name="e_busy_wait1" src="http://jadran.sdsu.edu/~jadrn037/proj1/images/wait.gif" /></center>
+    
+    <h2 id="button_line">
+    <input type="button" value="Cancel" name="e_cancel" />
+        <input type="submit" value="Confirm" name="e_submit" /></h2>
+        </div>
+            
+      </form>  
+    </div>
+      
+      <div id="tab-delete">
+        <form id="form_delete">
+          
+        <table class="form_table">
+      <tr>    
+                <td><label>SKU:</label></td>
+                <td><input type="text" name="d_sku" id="d_sku" size="10" maxlength="7"  /></td>
+                <td><input type="button" class="topbuttons" value="Delete" name="d_delete"/></td>
+                <td><input type="button" class="topbuttons" value="Clear" name="d_clear"/></td>
+                <td><img name="d_busy_wait" src="http://jadran.sdsu.edu/~jadrn037/proj1/images/wait.gif" /></td>                   
+        </tr>
+        </table>
+        
+        <h4><div id="message_line1" name="d_message"> </div>&nbsp;</h4>
+        <div name="del_confirm" class="confirm_message"> </div>
+        <div id="d_display"><div id="d_data"></div>
+        <h2 id="button_line">
+        <input type="button" value="Cancel" name="d_cancel" />
+            <input type="submit" value="Confirm" name="d_confirm" /></h2>
+          <center><img name="d_busy_wait1" src="http://jadran.sdsu.edu/~jadrn037/proj1/images/wait.gif" /></center>
+          </div>
+    </form>
+    </div>  
+    </div>
+</div>
+</body>
+
+</html>

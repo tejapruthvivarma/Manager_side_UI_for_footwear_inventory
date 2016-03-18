@@ -1,0 +1,47 @@
+
+use jadrn037;
+
+drop table if exists product;
+drop table if exists category;
+drop table if exists vendor;
+
+
+create table vendor(
+    vendor_id int AUTO_INCREMENT PRIMARY KEY,
+    vendor_name varchar(30) NOT NULL);	
+	
+create table category(
+    category_id int AUTO_INCREMENT PRIMARY KEY,
+    category_name varchar(40) NOT NULL);
+	
+create table product(
+    sku_id varchar(7) NOT NULL PRIMARY KEY,   
+    category_id int NOT NULL,
+	vendor_id int NOT NULL,
+	manufacturer_id varchar(10) NOT NULL,
+	description varchar(500) NOT NULL,
+	features varchar(500) NOT NULL,
+	cost decimal(8,2) NOT NULL,
+    retail decimal(8,2) NOT NULL,
+    image varchar(15)  NOT NULL ,
+    FOREIGN KEY(vendor_id) references vendor(vendor_id),
+    FOREIGN KEY(category_id) references category(category_id) );
+		
+	
+# Add entries to the vendor table
+insert into vendor values(‘’,’Puma’);
+insert into vendor values(‘’,’Nike’);
+insert into vendor values(‘’,’Reebok’);
+insert into vendor values(‘’,’Guess’);
+insert into vendor values(‘’,’Lacoste’);
+insert into vendor values(‘’,’Asics’);
+
+
+# Add entries to the category table
+insert into category(category_name) values(‘Sports Shoes’);
+insert into category values(‘’,’Flip Flops’);
+insert into category values(‘’,’Leather shoes’);
+insert into category values(‘’,’Loafers’);
+insert into category values(‘’,’Snickers’);
+
+	

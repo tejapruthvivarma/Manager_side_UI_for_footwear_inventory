@@ -1,0 +1,12 @@
+How I handeled back button after logging out.
+1) I used a single page application approach
+2) I fetch the html code from html_load.txt via load.chi perl script.
+3) I just print this response to a div tag which was preiviously empty and hidden
+4) All load.cgi is called via login.cgi script after successful logging in
+5) Once I press logout, I am calling logoout.cgi script
+6) In logout.cgi script I am deleting sessions and coockie
+7) After successful logging out I delete previously printed response and reload the landing page manually,
+8) Thus, when after logging out if user presses back button it loads him  to page open prior to opening this login page.
+9)
+I used this approach because,
+it is cross browser campatiable, fast, secure.
